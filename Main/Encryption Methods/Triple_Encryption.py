@@ -27,7 +27,7 @@ class TripleEncryption:
             file_out.write(f"Key 1: {self.key['key1']}, Key 2: {self.key['key2']}, Key 3: {self.key['key3']}".encode())
             file_out.close()
         else:
-            print(f"Key not saved, the keys are: Key 1: {self.key['key1']}, Key 2: {self.key['key2']}, Key 3: {self.key['key3']}")
+            print(f"Keys not saved, the keys are: Key 1: {self.key['key1']}, Key 2: {self.key['key2']}, Key 3: {self.key['key3']}")
 
     def encrypt(self, data):
         cipher1 = AES.new(self.key["key1"], AES.MODE_CBC)
@@ -66,6 +66,7 @@ class TripleEncryption:
         original_data3 = unpad(cipher3.decrypt(original_data2), AES.block_size)
 
         return original_data3  # Concatenate decrypted data
+
 
 if __name__ == "__main__":
     encrypt = TripleEncryption()
